@@ -1,0 +1,15 @@
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\bin\Debug\net6.0\303_Coursework.exe
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\bin\Debug\net6.0\303_Coursework.deps.json
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\bin\Debug\net6.0\303_Coursework.runtimeconfig.json
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\bin\Debug\net6.0\303_Coursework.dll
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\bin\Debug\net6.0\303_Coursework.pdb
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\303_Coursework.csproj.AssemblyReference.cache
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\303_Coursework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\303_Coursework.AssemblyInfoInputs.cache
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\303_Coursework.AssemblyInfo.cs
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\303_Coursework.csproj.CoreCompileInputs.cache
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\303_Coursework.dll
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\refint\303_Coursework.dll
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\303_Coursework.pdb
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\303_Coursework.genruntimeconfig.cache
+C:\Users\x77wi\source\repos\303_Coursework\303_Coursework\obj\Debug\net6.0\ref\303_Coursework.dll
