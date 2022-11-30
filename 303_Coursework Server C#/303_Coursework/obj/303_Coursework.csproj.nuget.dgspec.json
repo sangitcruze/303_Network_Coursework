@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\x77wi\\source\\repos\\303_Coursework\\303_Coursework\\303_Coursework.csproj": {}
+    "C:\\Users\\x77wi\\Documents\\GitHub\\303_Network_Coursework\\303_Coursework Server C#\\303_Coursework\\303_Coursework.csproj": {}
   },
   "projects": {
-    "C:\\Users\\x77wi\\source\\repos\\303_Coursework\\303_Coursework\\303_Coursework.csproj": {
+    "C:\\Users\\x77wi\\Documents\\GitHub\\303_Network_Coursework\\303_Coursework Server C#\\303_Coursework\\303_Coursework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\x77wi\\source\\repos\\303_Coursework\\303_Coursework\\303_Coursework.csproj",
+        "projectUniqueName": "C:\\Users\\x77wi\\Documents\\GitHub\\303_Network_Coursework\\303_Coursework Server C#\\303_Coursework\\303_Coursework.csproj",
         "projectName": "303_Coursework",
-        "projectPath": "C:\\Users\\x77wi\\source\\repos\\303_Coursework\\303_Coursework\\303_Coursework.csproj",
+        "projectPath": "C:\\Users\\x77wi\\Documents\\GitHub\\303_Network_Coursework\\303_Coursework Server C#\\303_Coursework\\303_Coursework.csproj",
         "packagesPath": "C:\\Users\\x77wi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\x77wi\\source\\repos\\303_Coursework\\303_Coursework\\obj\\",
+        "outputPath": "C:\\Users\\x77wi\\Documents\\GitHub\\303_Network_Coursework\\303_Coursework Server C#\\303_Coursework\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\x77wi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Numerics.Vectors": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

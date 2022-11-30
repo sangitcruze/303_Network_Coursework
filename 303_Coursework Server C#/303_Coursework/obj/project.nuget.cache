@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IZs26AkH35v5NABXTFGpUBsBCABJufGIhH04ZhYbRg020Zj/Bwzs33zJM5K3KmQD2YkhYjtN8IjMPG4L1WM0Zw==",
+  "dgSpecHash": "xvFl2x/AdyeDBMxk83zoEfNoAcSED8Q7yswNHlbG6KAMVQiyx0utPHKONCvBFkO+v+xzjKMA9mPh7yuDRVfKDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\x77wi\\source\\repos\\303_Coursework\\303_Coursework\\303_Coursework.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\x77wi\\Documents\\GitHub\\303_Network_Coursework\\303_Coursework Server C#\\303_Coursework\\303_Coursework.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\x77wi\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
