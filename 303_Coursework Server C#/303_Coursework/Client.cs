@@ -209,7 +209,7 @@ namespace _303_Coursework
 
         public void SendIntoGame(string _playerName)
         {
-            player = new Player(id, _playerName, new Vector3(0, 0, 0));
+            player = new Player(id, _playerName, new Vector3(220, 387, 639));
 
             foreach (Client _client in Server.clients.Values)
             {
