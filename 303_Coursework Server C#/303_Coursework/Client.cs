@@ -235,7 +235,7 @@ namespace _303_Coursework
         private void Disconnect()
         {
             Console.WriteLine($"{tcp.socket.Client.RemoteEndPoint} has disconnected");
-
+           
             player = null;
 
             tcp.Disconnect();

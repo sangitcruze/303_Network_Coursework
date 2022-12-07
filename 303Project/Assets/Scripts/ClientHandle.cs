@@ -33,11 +33,28 @@ public class ClientHandle : MonoBehaviour
     {
         int _id = _packet.ReadInt();
         Vector3 _position = _packet.ReadVector3();
+        if (GameManager.players.TryGetValue((_id, out PlayerManager _player))
+        {
+            if (id == Client.instance.myId)
+            {
+                if (_player.TryGetComponent<PlayerController>(out var playerController))
+                {
+                    playerController.ServerCorrection(_position, tick);
 
-        GameManager.players[_id].transform.position = _position;
-        //Debug.Log("player pos moveemnt handle RTX4090TI sent from client");
-        Debug.Log($"{_id} has position:{_position}");
+                }
+
+
+            }
+
+
+
+
+        }
     }
+    //    GameManager.players[_id].transform.position = _position;
+    //    //Debug.Log("player pos moveemnt handle RTX4090TI sent from client");
+    //    Debug.Log($"{_id} has position:{_position}");
+    //}
 
     public static void PlayerRotation(Packet _packet)
     {
