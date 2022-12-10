@@ -100,6 +100,7 @@
 -define:NET_STANDARD_2_1
 -define:NETSTANDARD
 -define:NETSTANDARD2_1
+-define:UNITY_SERVER
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -312,6 +313,7 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Client.cs"
 "Assets/Scripts/Constants.cs"
+"Assets/Scripts/ItemCollector.cs"
 "Assets/Scripts/NetworkManager.cs"
 "Assets/Scripts/Packet.cs"
 "Assets/Scripts/Player.cs"

@@ -102,6 +102,7 @@
 -define:NETSTANDARD
 -define:NETSTANDARD2_1
 -define:ENABLE_PROFILER
+-define:UNITY_SERVER
 -define:DEBUG
 -define:TRACE
 -define:UNITY_ASSERTIONS
@@ -356,6 +357,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Client.cs"
 "Assets/Scripts/Constants.cs"
+"Assets/Scripts/ItemCollector.cs"
 "Assets/Scripts/NetworkManager.cs"
 "Assets/Scripts/Packet.cs"
 "Assets/Scripts/Player.cs"

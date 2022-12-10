@@ -1,6 +1,7 @@
 using _303_Coursework;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -39,9 +40,30 @@ public class GameManager : MonoBehaviour
             _player = Instantiate(playerPrefab, _position, _rotation);
         }
 
+
+
         _player.GetComponent<PlayerManager>().id = _id;
         _player.GetComponent<PlayerManager>().username = _username;
         players.Add(_id, _player.GetComponent<PlayerManager>());
-      
+
     }
+    public void stopGame()
+    {
+        StartCoroutine(StopGame());
+        Debug.Log("stopping the game");
+    }
+
+
+public IEnumerator StopGame()
+    {
+        yield return new WaitForSeconds(3);
+        #if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
+        Debug.Log("application quit timer working ");
+    }
+
+
+
 }

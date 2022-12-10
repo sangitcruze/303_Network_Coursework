@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject startMenu;
     public TMP_InputField usernameField;
     public TMP_InputField IPInputField;
+    public TMP_Text Victory;
 
 
     private void Awake()
@@ -32,6 +33,7 @@ public class UIManager : MonoBehaviour
 
         usernameField.interactable = false;
         IPInputField.interactable = false;
+
         Client.instance.ConnectToServer();
 
 

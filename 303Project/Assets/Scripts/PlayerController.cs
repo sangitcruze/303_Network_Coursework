@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -24,20 +23,20 @@ public class PlayerController : MonoBehaviour
         ClientSend.PlayerMovement(_inputs);
     }
 
-    public void ServerCorrection(Vector3 _position, int _time)
-    {
-        int currentTime = previousPositions.FirstOrDefault(x => x.Time == _time);
+    //public void ServerCorrection(Vector3 _position, int _time)
+    //{
+    //    int currentTime = previousPositions.FirstOrDefault(x => x.Time == _time);
 
-        if (currentTime == null)
-            return;
+    //    if (currentTime == null)
+    //        return;
 
-        if (Vector3.Distance(new Vector3(currentTime.Position.x, currentTime.Position.y, currentTime.Position.z), _position) > correctionThreshold)
-        {
-            transform.position = _position;
-        }
+    //    if (Vector3.Distance(new Vector3(currentTime.Position.x, currentTime.Position.y, currentTime.Position.z), _position) > correctionThreshold)
+    //    {
+    //        transform.position = _position;
+    //    }
 
-        previousPositions.RemoveAll(x => x.Time <= _time);
-    }
+    //    previousPositions.RemoveAll(x => x.Time <= _time);
+    //}
 
 
 

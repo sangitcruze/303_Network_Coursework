@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ServerSend
 {
     /// <summary>Sends a packet to a client via TCP.</summary>
@@ -101,6 +102,22 @@ public class ServerSend
 
             SendTCPData(_toClient, _packet);
         }
+    }
+
+    public static void CoinCounter(Player player)
+    {
+        //sends a message to all the clients that a player has won the game 
+        using (Packet _packet = new Packet((int)ServerPackets.VictoryMessage))
+        {
+            _packet.Write(player.id);
+            _packet.Write(player.username);
+
+
+            SendTCPDataToAll(_packet);
+            Debug.Log("sends the message to all the client from the server that a player has won");
+        }
+
+
     }
 
     /// <summary>Sends a player's updated position to all clients.</summary>

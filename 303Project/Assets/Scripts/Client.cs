@@ -5,14 +5,15 @@ using System.Net;
 using System;
 using System.Net.Sockets;
 using _303_Coursework;
-using System.IO;
+
 
 public class Client : MonoBehaviour
 {
     public static Client instance;
     public static int dataBufferSize = 4096;
 
-    public string ip = "127.0.0.1";
+    //public string ip = "127.0.0.1";
+    public string ip = "109.153.147.157";
     public int port = 26950;
     public int myId = 0;
     public TCP tcp;
@@ -42,13 +43,7 @@ public class Client : MonoBehaviour
 
 
 
-    private void Start()
-    {
-        tcp = new TCP();
-        udp = new UDP();
-
-
-    }
+   
 
 
     private void OnApplicationQuit()
@@ -64,7 +59,10 @@ public class Client : MonoBehaviour
 
     public void ConnectToServer()
     {
-
+        //lets us choose custom ip
+        ip = UIManager.instance.IPInputField.text.Trim();
+        tcp = new TCP();
+        udp = new UDP();
         IntializeClientData();
         isConnected= true;
 
@@ -359,7 +357,9 @@ public class Client : MonoBehaviour
                 { (int)ServerPackets.welcome, ClientHandle.Welcome},
                 { (int)ServerPackets.spawnPlayer, ClientHandle.SpawnPlayer},
                 { (int)ServerPackets.playerPosition, ClientHandle.PlayerPosition},
-                { (int)ServerPackets.playerRotation, ClientHandle.PlayerRotation}
+                { (int)ServerPackets.playerRotation, ClientHandle.PlayerRotation},
+                { (int)ServerPackets.VictoryMessage, ClientHandle.CoinCounter}
+
                
 
             };

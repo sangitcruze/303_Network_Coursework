@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1355474297956539854}
-  sensitivity: 100
+  sensitivity: 500
   clampAngle: 85
 --- !u!1 &6192393921211274040
 GameObject:
@@ -209,6 +209,8 @@ GameObject:
   - component: {fileID: 1542301138798817592}
   - component: {fileID: 1355474297956539854}
   - component: {fileID: 2510351049362253220}
+  - component: {fileID: -2612299819023417126}
+  - component: {fileID: -8481682944405286927}
   m_Layer: 0
   m_Name: LocalPlayer
   m_TagString: Untagged
@@ -259,3 +261,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d1fe3b97be00f4d99c3807a28f74fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2612299819023417126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467786620112039432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bda08d14dd48b4c98b6b278ff8ee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &-8481682944405286927
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467786620112039432}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

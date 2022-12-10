@@ -2,6 +2,7 @@ using _303_Coursework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -29,34 +30,29 @@ public class ClientHandle : MonoBehaviour
         GameManager.instance.SpawnPlayer(_id, _username, _position, _rotation);
     }
 
+    public static void CoinCounter(Packet _packet)
+    {
+        //reads the message from the server that a player has won the game 
+        int id = _packet.ReadInt();
+        string username = _packet.ReadString();
+        UIManager.instance.Victory.text = $"Player {username} has won by collectiing 5 golden balls first :) " ;
+        GameManager.instance.stopGame();
+       
+
+        Debug.Log("reading message from the server that a player has won");
+    }
+
     public static void PlayerPosition(Packet _packet)
     {
         int _id = _packet.ReadInt();
         Vector3 _position = _packet.ReadVector3();
-        if (GameManager.players.TryGetValue((_id, out PlayerManager _player))
-        {
-            if (id == Client.instance.myId)
-            {
-                if (_player.TryGetComponent<PlayerController>(out var playerController))
-                {
-                    playerController.ServerCorrection(_position, tick);
-
-                }
-
-
-            }
-
-
-
-
-        }
+        
+    GameManager.players[_id].transform.position = _position;
+        //Debug.Log("player pos moveemnt handle RTX4090TI sent from client");
+        //Debug.Log($"{_id} has position:{_position}");
     }
-    //    GameManager.players[_id].transform.position = _position;
-    //    //Debug.Log("player pos moveemnt handle RTX4090TI sent from client");
-    //    Debug.Log($"{_id} has position:{_position}");
-    //}
 
-    public static void PlayerRotation(Packet _packet)
+public static void PlayerRotation(Packet _packet)
     {
         int _id = _packet.ReadInt();
         Quaternion _rotation = _packet.ReadQuaternion();

@@ -17,7 +17,26 @@ public class ServerHandle
         Server.clients[_fromClient].SendIntoGame(_username);
     }
 
-    public static void PlayerMovement(int _fromClient, Packet _packet)
+
+    public static void CoinCollector(int _fromClient, Packet _packet)
+    {
+        //server receives and reads the client data which inclues the player id and score
+
+
+        int _id =_packet.ReadInt();
+        int score = _packet.ReadInt();
+        Server.clients[_fromClient].player.score++;
+        if (Server.clients[_fromClient].player.score > 4 ) 
+        {
+            //sends the victory message to all the clients 
+            ServerSend.CoinCounter(Server.clients[_fromClient].player);
+           
+        }
+
+
+    }
+
+        public static void PlayerMovement(int _fromClient, Packet _packet)
     {
         bool[] _inputs = new bool[_packet.ReadInt()];
         for (int i = 0; i < _inputs.Length; i++)

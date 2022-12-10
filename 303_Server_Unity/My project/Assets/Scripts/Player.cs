@@ -1,24 +1,19 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Player : MonoBehaviour
 {
-
     public int id;
     public string username;
+    public int score = 0;
     public CharacterController controller;
     public float gravity = -9.81f;
-
-    public float moveSpeed = 5f;
-    public float jumpSpeed = 5f;
+    public float moveSpeed = 6f;
+    public float jumpSpeed = 6f;
 
     private bool[] inputs;
     private float yVelocity = 0;
-
-
 
     private void Start()
     {
@@ -65,21 +60,18 @@ public class Player : MonoBehaviour
     {
         Vector3 _moveDirection = transform.right * _inputDirection.x + transform.forward * _inputDirection.y;
         _moveDirection *= moveSpeed;
+
         if (controller.isGrounded)
         {
             yVelocity = 0f;
             if (inputs[4])
             {
                 yVelocity = jumpSpeed ;
-
             }
-
-
         }
         yVelocity += gravity;
 
         _moveDirection.y = yVelocity;
-
         controller.Move(_moveDirection);
 
         ServerSend.PlayerPosition(this);
@@ -94,12 +86,4 @@ public class Player : MonoBehaviour
         inputs = _inputs;
         transform.rotation = _rotation;
     }
-
-
 }
-
-
-
-
-
-

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ClientSend : MonoBehaviour
 {
+
     private static void SendTCPData(Packet _packet)
     {
         _packet.WriteLength();
@@ -43,5 +44,23 @@ public class ClientSend : MonoBehaviour
             SendUDPData(_packet);
         }
     }
+
+
+    public static void CoinCollector(PlayerManager player)
+        //Client sends player id and score inrement to the server 
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.CoinCounter))
+        {
+
+            _packet.Write(player.id);
+            _packet.Write(1);
+
+            SendTCPData(_packet);
+            Debug.Log("client sending player info to server");
+
+
+        }
+    }
     #endregion
+
 }
