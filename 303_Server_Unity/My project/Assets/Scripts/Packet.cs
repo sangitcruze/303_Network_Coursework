@@ -13,9 +13,9 @@ using UnityEngine;
         spawnPlayer,
         playerPosition,
         playerRotation,
-        VictoryMessage,
-        StartTimer
-}
+        victoryMessage,
+        startTimer
+    }
 
     /// <summary>Sent from client to server.</summary>
     public enum ClientPackets

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
    
     //gets the currect tick we are on
-    public float tick;
+    public int tick;
     //server tick rate/fps
     private const float SERVER_TICK_RATE = 30f;
     public bool isTimerRunning = false;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void Fixedupdate()
+    public void FixedUpdate()
     {
           if (isTimerRunning)
         {

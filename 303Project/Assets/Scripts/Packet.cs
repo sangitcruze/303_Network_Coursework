@@ -13,8 +13,9 @@ public enum ServerPackets
     spawnPlayer,
     playerPosition,
     playerRotation,
-    VictoryMessage
-}
+    victoryMessage,
+    startTimer
+    }
 
 /// <summary>Sent from client to server.</summary>
 public enum ClientPackets

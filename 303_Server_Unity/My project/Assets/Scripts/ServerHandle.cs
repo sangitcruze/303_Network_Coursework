@@ -18,11 +18,8 @@ public class ServerHandle
         }
 
         Server.clients[_fromClient].SendIntoGame(_username);
-        if (Server.clients.Count == 1)
-        {
-            NetworkManager.instance.StartTimer();
-            
-        }
+      
+       NetworkManager.instance.StartTimer();
         ServerSend.StartTimer();
     }
     

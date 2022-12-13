@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
 
 
 public class ServerSend
@@ -108,7 +108,7 @@ public class ServerSend
     public static void CoinCounter(Player player)
     {
         //sends a message to all the clients that a player has won the game 
-        using (Packet _packet = new Packet((int)ServerPackets.VictoryMessage))
+        using (Packet _packet = new Packet((int)ServerPackets.victoryMessage))
         {
             _packet.Write(player.id);
             _packet.Write(player.username);
@@ -128,6 +128,7 @@ public class ServerSend
         using (Packet _packet = new Packet((int)ServerPackets.playerPosition))
         {
             _packet.Write(_player.id);
+            _packet.Write(NetworkManager.instance.tick);
             _packet.Write(_player.transform.position);
 
             SendUDPDataToAll(_packet);
@@ -151,7 +152,7 @@ public class ServerSend
     public static void StartTimer()
     {
         //Sends the current server ticks to all the packets
-        using (Packet _packet = new Packet((int)ServerPackets.StartTimer))
+        using (Packet _packet = new Packet((int)ServerPackets.startTimer))
         {
             _packet.Write(NetworkManager.instance.tick);
             

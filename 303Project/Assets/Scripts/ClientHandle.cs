@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
+
 using UnityEngine.UIElements;
 
 public class ClientHandle : MonoBehaviour
@@ -48,15 +49,17 @@ public class ClientHandle : MonoBehaviour
         var _id = _packet.ReadInt();
         var tick = _packet.ReadInt();
         Vector3 _position = _packet.ReadVector3();
-        
+        Debug.Log($"current tick: {tick},{ GameManager.instance.tick}");
         //GameManager.players[_id].transform.position = _position;
         if (GameManager.players.TryGetValue(_id, out var _player))
         {
+
             //local player
             if(_id.Equals(Client.instance.myId))
+
             if (!_player.ServerCorrection(_position, tick))
             {
-
+                    Debug.Log("local player connection failed");
 
             }
 
@@ -65,7 +68,7 @@ public class ClientHandle : MonoBehaviour
         else
         {
             _player.transform.position = _position;
-            _player.Positions.Add(new OldPositions(tick, _position));
+            _player.Positions.Add(new OldPositions( _position, tick));
             if (_player.Positions.Count > 10) _player.Positions.RemoveAt(0);
 
 

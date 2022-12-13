@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1355474297956539854}
-  sensitivity: 500
-  clampAngle: 85
+  Mouse_sensitivity: 100
+  Angle_Clamp: 85
 --- !u!1 &6192393921211274040
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 2510351049362253220}
   - component: {fileID: -2612299819023417126}
   - component: {fileID: -8481682944405286927}
+  - component: {fileID: 3728533585690178072}
   m_Layer: 0
   m_Name: LocalPlayer
   m_TagString: Untagged
@@ -247,8 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a51340bfbfbe24cae0e6ddb5583185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  username: 
+  NetworkThreshold: 0.1
+  isPredictionEnabled: 1
 --- !u!114 &2510351049362253220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +262,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d1fe3b97be00f4d99c3807a28f74fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  username: 
+  score: 0
+  controller: {fileID: 3728533585690178072}
+  gravity: -9.81
+  moveSpeed: 6
+  jumpSpeed: 6
 --- !u!114 &-2612299819023417126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,3 +297,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!143 &3728533585690178072
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467786620112039432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}

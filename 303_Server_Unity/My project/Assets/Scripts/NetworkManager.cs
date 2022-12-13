@@ -11,12 +11,14 @@ public class NetworkManager : MonoBehaviour
     public int tick;
     public bool isTimerRunning = false;
 
-    public void Fixedupdate()
+    public void FixedUpdate()
     {
+
         if (isTimerRunning)
         {
             // intrement the current tick
             tick++;
+            Debug.Log($"incrementing ticks{tick}");
 
         }
     }

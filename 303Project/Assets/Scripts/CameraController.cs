@@ -7,16 +7,16 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public PlayerManager player;
-    public float sensitivity = 100f;
-    public float clampAngle = 85f;
+    public float Mouse_sensitivity = 100f;
+    public float Angle_Clamp = 85f;
 
-    private float verticalRotation;
-    private float horizontalRotation;
+    private float _rotationV;
+    private float _rotationH;
 
     private void Start()
     {
-        verticalRotation = transform.localEulerAngles.x;
-        horizontalRotation = player.transform.eulerAngles.y;
+        _rotationV = transform.localEulerAngles.x;
+        _rotationH = player.transform.eulerAngles.y;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -28,16 +28,16 @@ public class CameraController : MonoBehaviour
 
     private void Look()
     {
-        float _mouseVertical = -Input.GetAxis("Mouse Y");
-        float _mouseHorizontal = Input.GetAxis("Mouse X");
+        float _mouseV = -Input.GetAxis("Mouse Y");
+        float _mouseH = Input.GetAxis("Mouse X");
 
-        verticalRotation += _mouseVertical * sensitivity * Time.deltaTime;
-        horizontalRotation += _mouseHorizontal * sensitivity * Time.deltaTime;
+        _rotationV += _mouseV * Mouse_sensitivity * Time.deltaTime;
+        _rotationH += _mouseH * Mouse_sensitivity * Time.deltaTime;
 
-        verticalRotation = Mathf.Clamp(verticalRotation, -clampAngle, clampAngle);
+        _rotationV = Mathf.Clamp(_rotationV, -Angle_Clamp, Angle_Clamp);
 
-        transform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
-        player.transform.rotation = Quaternion.Euler(0f, horizontalRotation, 0f);
+        transform.localRotation = Quaternion.Euler(_rotationV, 0f, 0f);
+        player.transform.rotation = Quaternion.Euler(0f, _rotationH, 0f);
     }
 }
 
