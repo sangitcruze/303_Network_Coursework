@@ -13,7 +13,8 @@ using UnityEngine;
         spawnPlayer,
         playerPosition,
         playerRotation,
-        VictoryMessage
+        VictoryMessage,
+        StartTimer
 }
 
     /// <summary>Sent from client to server.</summary>

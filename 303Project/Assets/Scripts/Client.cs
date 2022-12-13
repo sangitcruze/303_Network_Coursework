@@ -6,14 +6,47 @@ using System;
 using System.Net.Sockets;
 using _303_Coursework;
 
+//carries data about its respective tick and the input
+public struct InputPayLoad
+{
+    public int tick;
+    public Vector3 inputVector;
+}
+////carries data about its respective tick and the position
+public struct StatePayLoad
+{
+    public int tick;
+    public Vector3 position;
+}
+
 
 public class Client : MonoBehaviour
 {
     public static Client instance;
+
+    //prediction
+
+    ////keeps track of time passing
+    //private float timer;
+    ////gets the currect tick we are on
+    //private int currenttick;
+    // //determins how many ticks are between each ticks
+    //private float minTimeBetweenTicks;
+    ////server tick rate/fps
+    //private const float SERVER_TICK_RATE = 30f;
+    //private const int BUFFER_SIZE = 1024;
+
+    ////client
+    //private StatePayLoad[] stateBuffer;
+    //private InputPayLoad[] inputBuffer;
+    //private StatePayLoad latestServerState;
+    //private StatePayLoad lastProcessedState;
+
+
     public static int dataBufferSize = 4096;
 
-    //public string ip = "127.0.0.1";
-    public string ip = "109.153.147.157";
+    public string ip = "127.0.0.1";
+    //public string ip = "109.153.147.157";
     public int port = 26950;
     public int myId = 0;
     public TCP tcp;

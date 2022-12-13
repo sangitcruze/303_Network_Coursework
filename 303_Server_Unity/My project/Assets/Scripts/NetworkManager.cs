@@ -8,6 +8,26 @@ public class NetworkManager : MonoBehaviour
 
     public GameObject playerPrefab;
 
+    public int tick;
+    public bool isTimerRunning = false;
+
+    public void Fixedupdate()
+    {
+        if (isTimerRunning)
+        {
+            // intrement the current tick
+            tick++;
+
+        }
+    }
+    public void StartTimer()
+    {
+        //starts the timer and resets the tick 
+        isTimerRunning = true;
+        tick= 0;
+    }
+
+
     private void Awake()
     {
         if (instance == null)
@@ -30,6 +50,8 @@ public class NetworkManager : MonoBehaviour
         Server.Start(50, 26950);
 
     }
+
+
 
     private void OnApplicationQuit()
     {

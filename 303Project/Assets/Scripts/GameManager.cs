@@ -1,4 +1,5 @@
 using _303_Coursework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -12,6 +13,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject localPlayerPrefab;
     public GameObject playerPrefab;
+   
+    //gets the currect tick we are on
+    public float tick;
+    //server tick rate/fps
+    private const float SERVER_TICK_RATE = 30f;
+    public bool isTimerRunning = false;
+
+  
 
     private void Awake()
     {
@@ -27,7 +36,11 @@ public class GameManager : MonoBehaviour
 
         //DontDestroyOnLoad(this);
     }
-
+    public void StartTimer(int _tick)
+    {
+        tick = _tick;
+        isTimerRunning= true;
+    }
     public void SpawnPlayer(int _id, string _username, Vector3 _position, Quaternion _rotation)
     {
         GameObject _player;
@@ -42,11 +55,24 @@ public class GameManager : MonoBehaviour
 
 
 
-        _player.GetComponent<PlayerManager>().id = _id;
-        _player.GetComponent<PlayerManager>().username = _username;
+        _player.GetComponent<PlayerManager>().Id = _id;
+        _player.GetComponent<PlayerManager>().Username = _username;
         players.Add(_id, _player.GetComponent<PlayerManager>());
 
     }
+
+    public void Fixedupdate()
+    {
+          if (isTimerRunning)
+        {
+            // intrement the current tick
+            tick++;
+        }
+            
+          
+        
+    }
+
     public void stopGame()
     {
         StartCoroutine(StopGame());
@@ -54,7 +80,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-public IEnumerator StopGame()
+   public IEnumerator StopGame()
     {
         yield return new WaitForSeconds(3);
         #if UNITY_EDITOR

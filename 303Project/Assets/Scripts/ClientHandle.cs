@@ -42,15 +42,58 @@ public class ClientHandle : MonoBehaviour
         Debug.Log("reading message from the server that a player has won");
     }
 
+    //calculates the players pos by the input and the tick
     public static void PlayerPosition(Packet _packet)
     {
-        int _id = _packet.ReadInt();
+        var _id = _packet.ReadInt();
+        var tick = _packet.ReadInt();
         Vector3 _position = _packet.ReadVector3();
         
-    GameManager.players[_id].transform.position = _position;
-        //Debug.Log("player pos moveemnt handle RTX4090TI sent from client");
-        //Debug.Log($"{_id} has position:{_position}");
+        //GameManager.players[_id].transform.position = _position;
+        if (GameManager.players.TryGetValue(_id, out var _player))
+        {
+            //local player
+            if(_id.Equals(Client.instance.myId))
+            if (!_player.ServerCorrection(_position, tick))
+            {
+
+
+            }
+
+        }
+        //Exteranal player
+        else
+        {
+            _player.transform.position = _position;
+            _player.Positions.Add(new OldPositions(tick, _position));
+            if (_player.Positions.Count > 10) _player.Positions.RemoveAt(0);
+
+
+
+        }
     }
+        
+        
+       
+    //    if (GameManager.instance.tick == _tick)
+    //    {
+    //        Debug.Log("Tick is lining up correctly")
+
+    //    }
+
+    //    Debug.Log("player pos moveemnt handle RTX4090TI sent from client");
+    //    Debug.Log($"{_id} has position:{_position}");
+    //}
+
+    public static void StartTimer(Packet _packet)
+    {
+        //reads the current tick from the server
+        int _tick = _packet.ReadInt();
+        GameManager.instance.StartTimer(_tick);
+    }
+
+    
+
 
 public static void PlayerRotation(Packet _packet)
     {
@@ -60,4 +103,7 @@ public static void PlayerRotation(Packet _packet)
         GameManager.players[_id].transform.rotation = _rotation;
      
     }
+
+
+
 }

@@ -52,7 +52,7 @@ public class ClientSend : MonoBehaviour
         using (Packet _packet = new Packet((int)ClientPackets.CoinCounter))
         {
 
-            _packet.Write(player.id);
+            _packet.Write(player.Id);
             _packet.Write(1);
 
             SendTCPData(_packet);

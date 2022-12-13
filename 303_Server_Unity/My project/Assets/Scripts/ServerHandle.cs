@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ServerHandle
@@ -14,15 +16,21 @@ public class ServerHandle
         {
             Debug.Log($"Player \"{_username}\" (ID: {_fromClient}) has assumed the wrong client ID ({_clientIdCheck})!");
         }
+
         Server.clients[_fromClient].SendIntoGame(_username);
+        if (Server.clients.Count == 1)
+        {
+            NetworkManager.instance.StartTimer();
+            
+        }
+        ServerSend.StartTimer();
     }
+    
 
 
     public static void CoinCollector(int _fromClient, Packet _packet)
     {
         //server receives and reads the client data which inclues the player id and score
-
-
         int _id =_packet.ReadInt();
         int score = _packet.ReadInt();
         Server.clients[_fromClient].player.score++;
@@ -47,4 +55,10 @@ public class ServerHandle
 
         Server.clients[_fromClient].player.SetInput(_inputs, _rotation);
     }
-}
+
+
+
+ }
+
+
+
