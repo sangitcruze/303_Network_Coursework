@@ -19,14 +19,13 @@ public class Server
     private static UdpClient udpListener;
 
     /// <summary>Starts the server.</summary>
-    /// <param name="_maxPlayers">The maximum players that can be connected simultaneously.</param>
-    /// <param name="_port">The port to start the server on.</param>
+    /// <param name="_maxPlayers">The maximum players that can be connected to the server at the same time.</param>
+    /// <param name="_port"> starts the server on this port .</param>
     public static void Start(int _maxPlayers, int _port)
     {
         MaxPlayers = _maxPlayers;
         Port = _port;
 
-        Debug.Log("Starting server...");
         InitializeServerData();
 
         tcpListener = new TcpListener(IPAddress.Any, Port);
@@ -35,7 +34,7 @@ public class Server
 
         udpListener = new UdpClient(Port);
         udpListener.BeginReceive(UDPReceiveCallback, null);
-
+        //Lets us know that the server started
         Debug.Log($"Server started on port {Port}.");
     }
 
